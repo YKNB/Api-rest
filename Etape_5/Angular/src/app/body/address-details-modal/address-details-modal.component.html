@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h4 class="modal-title">Détails de l'adresse</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Adresse : {{ address.street }}</p>
+    <p>Code Postal : {{ address.postalCode }}</p>
+    <p>Ville : {{ address.city }}</p>
+    <p>Pays : {{ address.country }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Fermer</button>
+  </div>
+  

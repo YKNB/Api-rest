@@ -1,0 +1,59 @@
+<br><br><br>
+<!-- Barre de recherche -->
+<!-- Barre de recherche -->
+<div class="input-group input-group-custom justify-content-center">
+  <input type="text" [(ngModel)]="searchTerm" (input)="searchBooks()" class="form-control" placeholder="Rechercher un livre..." aria-label="Search">
+  <div class="input-group-append">
+    <button class="btn btn-primary" type="button">
+      <i class="fas fa-search"></i> <!-- Remplacez "fas fa-search" par la classe de votre icône -->
+    </button>
+  </div>
+</div>
+
+
+
+<!-- Message de résultat trouvé -->
+<div class="center search-result" *ngIf="searchResult">
+  <p>1 résultat trouvé pour : "{{ searchTerm }}"</p>
+  <p (click)="openSuccessDialog(searchResult)" class="clickable-text">Titre : {{ searchResult.title }}</p>
+</div>
+
+
+
+
+<!-- <div class="card-columns">
+  <div class="card mb-4" *ngFor="let book of listBook">
+    <div *ngIf="book.image!=='' && book.image!=null; else elseBlock">
+      <img src="{{book.image}}"  [alt]="" style="width: 300px;height: 250px;" alt="Placeholder image"></div>
+    <ng-template #elseBlock> <img src="{{current}}" [alt]="'pas de photo'" style="width: 300px;height: 250px;" alt="Placeholder image"></ng-template>
+
+    <div class="card-body">
+      <h5 class="card-title" (click)="bookOpened(book)">TIire : {{ PrintText(book.title, 30) }} </h5>
+      <h6 class="card-subtitle mb-2 text-muted" (click)="bookOpened(book)">Auteur : {{ book.author}}</h6>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{book.date_publication  | date:'yyyy-MM-dd' }}</small>
+    </div>
+    <button routerLink="/element" *ngIf="(userRole$ | async) === 'ROLE_ADMIN' || (userRole$ | async) === 'ROLE_USER'"  type="button" class="btn btn-primary">modifier livre</button>
+    <button mat-button (click)="openSuccessDialog(book)">Voir les détails</button>
+  </div>
+</div>
+<button routerLink="/addelement" *ngIf="(userRole$ | async) === 'ROLE_ADMIN' || (userRole$ | async) === 'ROLE_USER'"  type="button" class="btn btn-primary">ajouter livre</button>
+ -->
+ <button routerLink="/addelement" ></button>
+ <div class="card-columns">
+   <div class="card mb-4" *ngFor="let book of listBook">
+     <div *ngIf="book.image!=='' && book.image!=null; else elseBlock" routerLink="/element">
+       <img src="{{book.image}}" routerLink="/element" [alt]="" style="width: 250px;height: 25px;" alt="Placeholder image"></div>
+     <ng-template #elseBlock> <img src="{{current}}" [alt]="'pas de photo'" style="width: 250px;height: 250px;" alt="Placeholder image"></ng-template>
+ 
+     <div class="card-body">
+       <h5 class="card-title" (click)="bookOpened(book)" routerLink="/element">{{ PrintText(book.title, 30) }} </h5>
+       <h6 class="card-subtitle mb-2 text-muted" (click)="bookOpened(book)">{{ book.author}}</h6>
+       <p class="card-text" (click)="bookOpened(book)" > {{ PrintText(book.description, 100)}} </p>
+     </div>
+     <div class="card-footer">
+       <small class="text-muted">{{book.date_publication}}</small>
+     </div>
+   </div>
+ </div>

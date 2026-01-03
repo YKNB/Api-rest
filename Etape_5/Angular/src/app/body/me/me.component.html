@@ -1,0 +1,23 @@
+<div>
+    <p>Id: {{ userId }}</p>
+    <p>Username: {{ username }}</p>
+    <p>Role: {{ userRole$ | async }}</p>
+    <p>Token: {{ getToken() }}</p>
+  </div>
+  <p>Adresses:</p>
+  <div *ngIf="addresses && addresses.length > 0">
+    <ul>
+      <li *ngFor="let address of addresses">
+        {{ address.street }}, {{ address.postal_code }} {{ address.city }}, {{ address.country }}
+      </li>
+    </ul>
+  </div>
+
+  <button class="btn btn-primary" (click)="openAddressDialog()">Ajouter une adresse</button>
+
+  <div>
+    <label for="newUsername">Nouveau nom d'utilisateur:</label>
+    <input type="text" id="newUsername" [(ngModel)]="newUsername" />
+    <button (click)="updateUsername()">Modifier</button>
+  </div>
+  

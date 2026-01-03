@@ -1,0 +1,23 @@
+@import 'src/assets/shared/shared';
+
+.main-container{
+  margin-left: $main-margin;
+  margin-right: $main-margin;
+}
+
+
+.main-container{
+  background: transparent;
+}
+
+.idea-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image-logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

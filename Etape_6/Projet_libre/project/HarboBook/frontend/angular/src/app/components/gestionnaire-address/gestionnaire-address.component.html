@@ -1,0 +1,82 @@
+<br><br><br><br>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Gestionnaire d'adresses</div>
+    <div class="panel-body">
+      <h2>Liste des adresses</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Adresse</th>
+            <th>Code Postal</th>
+            <th>Ville</th>
+            <th>Pays</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let address of addresses">
+            <td (click)="onAddressClick(address)">{{ address.id }}</td>
+            <td (click)="onAddressClick(address)">{{ address.street }}</td>
+            <td (click)="onAddressClick(address)">{{ address.postalCode }}</td>
+            <td (click)="onAddressClick(address)">{{ address.city }}</td>
+            <td (click)="onAddressClick(address)">{{ address.country }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="onDeleteClick(address.id)">Supprimer</button>
+            </td>            
+          </tr>
+        </tbody>
+      </table>
+
+      <!----
+      <div class="action-buttons">
+        <button class="btn btn-primary" (click)="onModifyClick()">Modifier</button>
+        <button class="btn btn-danger" (click)="onDeleteClick()">Supprimer</button>
+      </div>
+>
+      <!-- Formulaire de modification -->
+      <div *ngIf="selectedAddress !== null">
+        <h4>Modifier l'adresse</h4>
+        <form (ngSubmit)="updateAddress()">
+          <div class="form-group">
+            <label>Adresse</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="selectedAddress.street"
+              name="street"
+            />
+          </div>
+          <div class="form-group">
+            <label>Code Postal</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="selectedAddress.postalCode"
+              name="postalCode"
+            />
+          </div>
+          <div class="form-group">
+            <label>Ville</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="selectedAddress.city"
+              name="city"
+            />
+          </div>
+          <div class="form-group">
+            <label>Pays</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="selectedAddress.country"
+              name="country"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Modifier</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

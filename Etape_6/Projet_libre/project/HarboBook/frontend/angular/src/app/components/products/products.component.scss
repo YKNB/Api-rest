@@ -1,0 +1,58 @@
+.card-columns {
+    column-count: 4;
+}
+ .card.mb-3{
+   width: auto;
+   height: auto;
+ }
+
+.card-img-top{
+  width: 19rem;
+  height: 19rem;
+}
+
+
+
+.input-group-custom {
+  max-width: 300px; /* Ajustez la largeur maximale selon vos besoins */
+  margin: 0 auto; /* Centrez horizontalement le groupe d'entrée */
+}
+
+
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+
+
+.search-result {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-result:hover {
+  background-color: #e0e0e0;
+}
+
+.search-result-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.clickable-text {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}
+
+.clickable-text:hover {
+  text-decoration: none;
+  color: darkblue;
+}

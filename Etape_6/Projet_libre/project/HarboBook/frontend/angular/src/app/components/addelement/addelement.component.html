@@ -1,0 +1,71 @@
+
+<br><br><br>
+<form style="width: 700px"  #addCustomerForm="ngForm" (ngSubmit)="addbook()">
+
+  <div class="form-group row">
+    <label for="title"  class="col-sm-2 col-form-label">Titre</label>
+    <div class="col-sm-10">
+      <input type="text" value="{{book.title}}" required name="title" [ngModelOptions]="{standalone: true}" [(ngModel)]="book.title" class="form-control" value="" id="title" placeholder="Titre du produit">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="author"  class="col-sm-2 col-form-label">Autheur</label>
+    <div class="col-sm-10">
+      <input class="form-control" required [ngModelOptions]="{standalone: true}"  name="author" value="{{book.author}}" [(ngModel)]="book.author" value="" placeholder="Autheur" id="author">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="description"  class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" required [ngModelOptions]="{standalone: true}"  name="description" value="{{book.description}}" [(ngModel)]="book.description" placeholder="description" id="description" rows="3"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="page" class="col-sm-2 col-form-label">Nombre de pages</label>
+    <div class="col-sm-10">
+      <input type="number" name="pages" [ngModelOptions]="{standalone: true}"  value="{{book.pages}}" [(ngModel)]="book.pages" class="form-control" id="page" placeholder="10">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="quantity" class="col-sm-2 col-form-label">Quantité</label>
+    <div class="col-sm-10">
+      <input type="number" name="quantity" [ngModelOptions]="{standalone: true}"  value="{{book.quantity}}" [(ngModel)]="book.quantity" class="form-control" id="quantity" placeholder="10">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="image" class="col-sm-2 col-form-label">Image</label>
+    <div class="col-sm-10">
+      <input type="text" [ngModelOptions]="{standalone: true}"  value="{{book.image}}" [(ngModel)]="book.image" class="form-control" name="image" id="image" placeholder="url.image.jpg">
+    </div>
+  </div>
+
+  <!-- <div class="form-group row">
+    <label for="date" class="col-sm-2 col-form-label">Date de sortie</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="date" placeholder="yyyy-mm-dd" [ngModelOptions]="{standalone: true}" value="{{book.date_publication}}"
+             name="date" [(ngModel)]="book.date_publication" ngbDatepicker #d="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+      </div>
+    </div></div> -->
+    <div class="form-group row">
+      <label for="date" class="col-sm-2 col-form-label">Date de sortie</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="date" id="date" [ngModelOptions]="{standalone: true}" [(ngModel)]="book.date_publication" name="date">
+      </div>
+    </div>
+    
+  <button type="submit" class="btn btn-primary">Sauvegarder</button>
+  <button type="submit" [hidden]="ajout" (click)="this.bookService.supprimer(book)" class="btn btn-primary">Supprimer</button>
+</form>
+
+<div *ngIf="successMessage" class="alert alert-success">
+  {{ successMessage }}
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>

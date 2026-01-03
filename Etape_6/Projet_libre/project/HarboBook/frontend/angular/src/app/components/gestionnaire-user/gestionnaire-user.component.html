@@ -1,0 +1,64 @@
+<br><br><br><br>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Gestionnaire utilisateur</div>
+    <div class="panel-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom d'utilisateur</th>
+            <th>Rôle</th>
+            <th>Date de création</th>
+            <th>Adresses</th> <!-- Nouvelle colonne pour les adresses -->
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of list_user">
+            <td (click)="openUserDetailsModal(user)">{{ user.id }}</td>
+            <td (click)="openUserDetailsModal(user)">{{ user.username }}</td>
+            <td (click)="openUserDetailsModal(user)">{{ user.role }}</td>
+            <td (click)="openUserDetailsModal(user)">{{ user.creationDate | date }}</td>
+            <td (click)="openUserDetailsModal(user)">
+              <ul>
+                <li *ngFor="let address of user.addressesList">
+                  {{ address.street }}, {{ address.postal_code }} {{ address.city }}, {{ address.country }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteUser(user.id)">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+              
+      </table>
+        <!-- Formulaire de modification -->
+  <div *ngIf="selectedUserId !== null">
+    <h4>Modifier les détails de l'utilisateur</h4>
+    <form (ngSubmit)="updateUser()">
+      <div class="form-group">
+        <label>Nom d'utilisateur</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="selectedUserDetails.username"
+          name="username"
+        />
+      </div>
+      <div class="form-group">
+        <label>Rôle</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="selectedUserDetails.role"
+          name="role"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Modifier</button>
+    </form>
+  </div>
+    </div>
+  </div>
+</div>

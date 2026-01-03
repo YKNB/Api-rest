@@ -1,0 +1,29 @@
+@import 'src/assets/shared/shared';
+
+.navbar-brand{
+  padding-top: 0;
+  padding-bottom: 5px;
+}
+
+.navbar{
+  padding-left: $main-margin;
+  padding-right: $main-margin;
+}
+
+
+/* Styles pour le dropdown en mode desktop */
+.desktop-dropdown .dropdown-menu {
+  max-height: 300px; /* Définissez la hauteur maximale que vous préférez */
+  overflow-y: auto; /* Ajoutez une barre de défilement verticale si nécessaire */
+}
+
+/* Styles pour le dropdown en mode mobile (vous pouvez ajuster la hauteur selon vos besoins) */
+@media screen and (max-width: 768px) {
+  .navbar-collapse.collapse .nav-item .dropdown-menu {
+ /* Hauteur maximale du dropdown en mode mobile */
+    height:200px ;
+    overflow-y: auto; /* Activer la barre de défilement vertical si nécessaire */
+    overflow-x: auto;
+    width: 50%;
+  }
+}

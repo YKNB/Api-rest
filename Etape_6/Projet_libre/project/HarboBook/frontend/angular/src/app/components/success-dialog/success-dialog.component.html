@@ -1,0 +1,10 @@
+<div>
+  <p>Titre : {{ data.book.title }}</p>
+  <p>Auteur : {{ data.book.author }}</p>
+  <p>Description : {{ data.book.description }}</p>
+  <p>Pages  : {{ data.book.pages }}</p>
+  <p>Date_publication : {{ data.book.date_publication | date:'yyyy-MM-dd' }}</p>
+  <p>Quantity : {{ data.book.quantity }}</p>
+  <!-- Ajoutez d'autres informations du livre ici -->
+</div>
+<button mat-button (click)="closeDialog()">Fermer</button>

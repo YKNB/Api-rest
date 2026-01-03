@@ -1,0 +1,11 @@
+@import 'src/assets/shared/shared';
+
+.navbar-brand{
+  padding-top: 0;
+  padding-bottom: 5px;
+}
+
+.navbar{
+  padding-left: $main-margin;
+  padding-right: $main-margin;
+}
